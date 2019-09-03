@@ -33,7 +33,7 @@ class App extends Component {
                     <Link to='/new'>Nova série</Link>
                   </li>
                   <li>
-                    <Link to='/about'>Sobre</Link>
+                    <Link to='/sobre'>Sobre</Link>
                   </li>
                 </ul>
               </div>
