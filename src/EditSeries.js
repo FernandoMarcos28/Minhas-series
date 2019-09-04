@@ -59,10 +59,10 @@ class EditSeries extends Component{
                 <h1>Editar Série</h1>
                 <form>
                     <div className="col-lg-12">
-                        Nome: <input ref='name' defaultValue={this.state.series.name} type="text" className="form-control" />
+                        <span className="pull-left">Nome:</span> <input ref='name' defaultValue={this.state.series.name} type="text" className="form-control" />
                     </div><br />
                     <div className="col-lg-6">
-                        Status: 
+                        <span className="pull-left">Status:</span>
                         <select className="form-control" defaultValue={this.state.series.status} ref='status'>
                             {   Object
                                 .keys(statuses)
@@ -71,7 +71,7 @@ class EditSeries extends Component{
                         </select>
                     </div>
                     <div className="col-lg-6">
-                        Genêros: 
+                        <span className="pull-left">Genêros:</span> 
                         <select className="form-control"  defaultValue={this.state.series.genre} ref='genre'>
                             {   this.state.genres
                                 .map( key => <option key={key} value={key}>{key}</option>)
@@ -79,7 +79,7 @@ class EditSeries extends Component{
                         </select>
                     </div><br />
                     <div className="col-lg-12">
-                        Comentários: <textarea className="form-control"  defaultValue={this.state.series.comments} ref='comments'></textarea><br />
+                        <span className="pull-left">Comentários:</span> <textarea className="form-control"  defaultValue={this.state.series.comments} ref='comments'></textarea><br />
                     </div>
                     <div className="col-lg-12">
                         <button type="button" onClick={this.saveSeries} className="btn btn-primary pull-left" >Salvar</button>

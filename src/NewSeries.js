@@ -1,6 +1,11 @@
 import React, { Component } from 'react';
 import api from './Api';
-import { Redirect } from 'react-router-dom'
+import { 
+    Redirect,
+    BrowserRouter as Router,
+    Route
+} from 'react-router-dom';
+import ReactFileUpload from './ReactFileUpload';
 
 const statuses = {
     'watched':'Assistido',
@@ -53,30 +58,39 @@ class NewSeries extends Component{
                 <h1>Nova Série</h1>
                 <form>
                     <div className="col-lg-12">
-                        Nome: <input ref='name' type="text" className="form-control" />
-                    </div><br />
-                    <div className="col-lg-6">
-                        Status: 
-                        <select className="form-control" ref='status'>
-                            {   Object
-                                .keys(statuses)
-                                .map( key => <option key={key} value={key}>{statuses[key]}</option>)
-                            }
-                        </select>
-                    </div>
-                    <div className="col-lg-6">
-                        Genêros: 
-                        <select className="form-control" ref='genre'>
-                            {   this.state.genres
-                                .map( key => <option key={key} value={key}>{key}</option>)
-                            }
-                        </select>
-                    </div><br />
-                    <div className="col-lg-12">
-                        Comentários: <textarea className="form-control" ref='comments'></textarea><br />
-                    </div>
-                    <div className="col-lg-12">
-                        <button type="button" onClick={this.saveSeries} className="btn btn-primary pull-left" >Salvar</button>
+                        <div className="col-lg-6">
+                            <div className="col-lg-12">
+                                Nome: <input ref='name' type="text" className="form-control" />
+                            </div><br />
+                            <div className="col-lg-6">
+                                Status: 
+                                <select className="form-control" ref='status'>
+                                    {   Object
+                                        .keys(statuses)
+                                        .map( key => <option key={key} value={key}>{statuses[key]}</option>)
+                                    }
+                                </select>
+                            </div>
+                            <div className="col-lg-6">
+                                Genêros: 
+                                <select className="form-control" ref='genre'>
+                                    {   this.state.genres
+                                        .map( key => <option key={key} value={key}>{key}</option>)
+                                    }
+                                </select>
+                            </div><br />
+                            <div className="col-lg-12">
+                                Comentários: <textarea className="form-control" ref='comments'></textarea><br />
+                            </div>
+                            <div className="col-lg-12">
+                                <button type="button" onClick={this.saveSeries} className="btn btn-primary pull-left" >Salvar</button>
+                            </div>
+                        </div>
+                       
+                        <div className="col-lg-6">
+                            <ReactFileUpload />
+                        </div>
+                       
                     </div>
                 </form>
             </section>
